@@ -306,9 +306,11 @@ const getMockSummary = (scores) => {
   }
 };
 
-export default {
+const aiService = {
   generateInterviewQuestions,
   scoreAnswer,
   generateSummary,
   getMockQuestions,
 };
+
+export default aiService;

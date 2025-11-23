@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Upload, Button, Card, message, Spin } from 'antd';
+import { Upload, Card, message, Spin } from 'antd';
 import { InboxOutlined, FilePdfOutlined } from '@ant-design/icons';
 import { extractResumeData } from '../../services/resumeService';
 import { useDispatch } from 'react-redux';

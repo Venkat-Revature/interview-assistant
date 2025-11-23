@@ -22,7 +22,6 @@ const CandidateList = () => {
   const averageScore = completedCandidates.length > 0
     ? Math.round(completedCandidates.reduce((sum, c) => sum + (c.score || 0), 0) / completedCandidates.length)
     : 0;
-  const passedCandidates = completedCandidates.filter((c) => c.score >= 70).length;
 
   const filteredCandidates = candidates
     .filter(

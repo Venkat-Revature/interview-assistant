@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Card, Button, Progress, Space, Alert, Spin } from 'antd';
-import { 
+import { Card, Button, Space, Alert, Spin } from 'antd';import { 
   CheckCircleOutlined, 
   CameraOutlined, 
   TrophyOutlined,
@@ -23,32 +22,75 @@ const QualificationScreen = ({ candidateName, onProceedToInterview }) => {
     };
   }, []);
 
-  const startCamera = async () => {
-    try {
-      setLoading(true);
-      const stream = await navigator.mediaDevices.getUserMedia({
-        video: { width: 640, height: 480 },
-        audio: false,
-      });
+  // Replace the startCamera function in QualificationScreen.jsx
+
+const startCamera = async () => {
+  try {
+    setLoading(true);
+    
+    // More flexible constraints for better compatibility
+    const constraints = {
+      video: {
+        width: { ideal: 640 },
+        height: { ideal: 480 },
+        facingMode: 'user'
+      },
+      audio: false,
+    };
+
+    console.log('Requesting camera access...');
+    
+    const stream = await navigator.mediaDevices.getUserMedia(constraints);
+    
+    console.log('Camera stream obtained:', stream);
+    
+    if (videoRef.current) {
+      videoRef.current.srcObject = stream;
       
-      if (videoRef.current) {
-        videoRef.current.srcObject = stream;
-        streamRef.current = stream;
-        setCameraActive(true);
-        setCameraError(null);
-        
-        // Simulate person detection after 2 seconds
-        setTimeout(() => {
-          setPersonDetected(true);
-        }, 2000);
-      }
-    } catch (error) {
-      console.error('Camera access error:', error);
-      setCameraError('Unable to access camera. Please ensure camera permissions are granted.');
-    } finally {
-      setLoading(false);
+      // Ensure video plays
+      videoRef.current.onloadedmetadata = () => {
+        videoRef.current.play().catch(err => {
+          console.error('Video play error:', err);
+        });
+      };
+      
+      streamRef.current = stream;
+      setCameraActive(true);
+      setCameraError(null);
+      
+      console.log('Camera started successfully');
+      
+      // Simulate person detection after 2 seconds
+      setTimeout(() => {
+        setPersonDetected(true);
+      }, 2000);
     }
-  };
+  } catch (error) {
+    console.error('Camera access error:', error);
+    console.error('Error name:', error.name);
+    console.error('Error message:', error.message);
+    
+    let errorMessage = 'Unable to access camera. ';
+    
+    if (error.name === 'NotAllowedError') {
+      errorMessage += 'Camera permission denied. Please allow camera access in browser settings.';
+    } else if (error.name === 'NotFoundError') {
+      errorMessage += 'No camera found on your device.';
+    } else if (error.name === 'NotReadableError') {
+      errorMessage += 'Camera is already in use by another application.';
+    } else if (error.name === 'OverconstrainedError') {
+      errorMessage += 'Camera constraints not supported by your device.';
+    } else if (error.name === 'TypeError') {
+      errorMessage += 'getUserMedia is not supported in your browser.';
+    } else {
+      errorMessage += 'Please check your camera and try again.';
+    }
+    
+    setCameraError(errorMessage);
+  } finally {
+    setLoading(false);
+  }
+};
 
   const stopCamera = () => {
     if (streamRef.current) {
