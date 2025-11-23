@@ -1,0 +1,298 @@
+.candidate-list-container {
+  padding: 20px;
+}
+
+/* Statistics Cards */
+.stat-card {
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  border: 1px solid #f0f0f0;
+}
+
+.stat-card:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+  transform: translateY(-2px);
+}
+
+.stat-card .ant-statistic-title {
+  font-size: 14px;
+  font-weight: 500;
+  color: #8c8c8c;
+}
+
+.stat-card .ant-statistic-content {
+  font-size: 28px;
+  font-weight: 700;
+}
+
+/* Current Interview Card */
+.current-interview-card {
+  border-radius: 12px;
+  border: 2px solid #1890ff;
+  box-shadow: 0 4px 12px rgba(24, 144, 255, 0.15);
+  animation: pulse-border 2s infinite;
+}
+
+.current-interview-card h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #1890ff;
+}
+
+@keyframes pulse-border {
+  0%, 100% {
+    box-shadow: 0 4px 12px rgba(24, 144, 255, 0.15);
+  }
+  50% {
+    box-shadow: 0 4px 20px rgba(24, 144, 255, 0.3);
+  }
+}
+
+/* List Header */
+.list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.list-header h2 {
+  margin: 0;
+  color: #262626;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+/* Table Styles */
+.candidates-table {
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+
+.candidates-table .ant-table-thead > tr > th {
+  background: #fafafa;
+  font-weight: 600;
+  color: #262626;
+}
+
+.candidates-table .ant-table-tbody > tr:hover {
+  background: #f5f5f5;
+}
+
+/* Candidate Details Drawer */
+.candidate-details {
+  padding: 20px 0;
+}
+
+.candidate-details .ant-descriptions-bordered .ant-descriptions-item-label {
+  font-weight: 600;
+  background: #fafafa;
+}
+
+.summary-section {
+  margin: 30px 0;
+  padding: 20px;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  border-radius: 12px;
+  border-left: 4px solid #1890ff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.summary-section h3 {
+  margin-top: 0;
+  color: #262626;
+  font-size: 18px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.summary-section h3::before {
+  content: '✨';
+  font-size: 20px;
+}
+
+.summary-section p {
+  color: #595959;
+  line-height: 1.8;
+  margin: 10px 0 0 0;
+  font-size: 15px;
+}
+
+/* Interview Details */
+.interview-details {
+  margin-top: 30px;
+}
+
+.interview-details h3 {
+  color: #262626;
+  margin-bottom: 20px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.timeline-item {
+  padding: 16px;
+  background: #fafafa;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  border: 1px solid #f0f0f0;
+  transition: all 0.3s ease;
+}
+
+.timeline-item:hover {
+  background: #f5f5f5;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.timeline-item p {
+  margin: 8px 0;
+  color: #595959;
+  line-height: 1.6;
+}
+
+.timeline-item strong {
+  color: #262626;
+  font-weight: 600;
+}
+
+.answer {
+  margin-top: 12px;
+  padding: 12px;
+  background: #e6f7ff;
+  border-left: 3px solid #1890ff;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.score {
+  margin-top: 12px;
+  padding: 8px 12px;
+  background: #f6ffed;
+  border-left: 3px solid #52c41a;
+  border-radius: 4px;
+  color: #52c41a;
+  font-weight: 600;
+  display: inline-block;
+}
+
+/* Tags */
+.ant-tag {
+  border-radius: 4px;
+  padding: 4px 10px;
+  font-weight: 500;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .candidate-list-container {
+    padding: 12px;
+  }
+
+  .list-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .list-header h2 {
+    font-size: 20px;
+  }
+
+  .stat-card .ant-statistic-content {
+    font-size: 24px;
+  }
+
+  .summary-section {
+    padding: 15px;
+  }
+
+  .timeline-item {
+    padding: 12px;
+  }
+}
+
+/* Loading States */
+.ant-spin-nested-loading {
+  min-height: 200px;
+}
+
+/* Empty State */
+.ant-empty {
+  margin: 40px 0;
+}
+
+/* Drawer Customization */
+.ant-drawer-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-bottom: none;
+}
+
+.ant-drawer-header .ant-drawer-title {
+  color: white;
+  font-weight: 600;
+}
+
+.ant-drawer-close {
+  color: white;
+}
+
+.ant-drawer-close:hover {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* Progress Bar Customization */
+.ant-progress-success-bg,
+.ant-progress-bg {
+  background: linear-gradient(90deg, #108ee9 0%, #87d068 100%);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.candidate-details > * {
+  animation: fadeIn 0.3s ease-out;
+}
+
+/* Status Indicators */
+.status-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-right: 6px;
+}
+
+.status-dot.completed {
+  background: #52c41a;
+}
+
+.status-dot.in-progress {
+  background: #faad14;
+  animation: blink 1.5s infinite;
+}
+
+@keyframes blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.3;
+  }
+}

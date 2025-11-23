@@ -1,0 +1,36 @@
+.interview-complete-container {
+  padding: 20px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.complete-card {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.results-section {
+  margin-top: 30px;
+}
+
+.summary-section {
+  background-color: #fafafa;
+  padding: 20px;
+  border-radius: 4px;
+  margin: 20px 0;
+  border-left: 4px solid #1890ff;
+}
+
+.summary-section h3 {
+  margin-top: 0;
+  color: #262626;
+}
+
+.summary-section p {
+  color: #595959;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.action-section {
+  margin-top: 30px;
+}

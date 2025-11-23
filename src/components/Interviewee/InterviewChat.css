@@ -1,0 +1,145 @@
+.interview-chat-container {
+  padding: 20px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.interview-card {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  border-radius: 12px;
+  border: 1px solid #f0f0f0;
+}
+
+.interview-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.progress-section {
+  flex: 1;
+}
+
+.progress-section span {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: 500;
+  color: #262626;
+}
+
+.timer-section {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-left: 20px;
+}
+
+.timer {
+  font-size: 24px;
+  font-weight: 800;
+  color: #1554e0;
+  min-width: 60px;
+  text-align: center;
+}
+
+.timer.warning {
+  color: #ff4d4f;
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.question-section {
+  margin-bottom: 30px;
+}
+
+.question-section h3 {
+  margin-bottom: 15px;
+  color: #262626;
+}
+
+.question-text {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #595959;
+  margin-bottom: 15px;
+}
+
+.difficulty {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.difficulty.easy {
+  background-color: #f6ffed;
+  color: #52c41a;
+}
+
+.difficulty.medium {
+  background-color: #fffbe6;
+  color: #faad14;
+}
+
+.difficulty.hard {
+  background-color: #fff1f0;
+  color: #ff4d4f;
+}
+
+.chat-messages {
+  background-color: #fbfcfe;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+  max-height: 320px;
+  overflow-y: auto;
+  min-height: 160px;
+  border: 1px solid #f0f0f0;
+}
+
+.message {
+  margin-bottom: 15px;
+  padding: 12px 16px;
+  border-radius: 4px;
+  word-wrap: break-word;
+}
+
+.bot-message {
+  background-color: #e8f2ff;
+  border-left: 3px solid #0c63e7;
+}
+
+.user-message {
+  background-color: #f6fff2;
+  border-left: 3px solid #3cb30a;
+  margin-left: 40px;
+}
+
+.message p {
+  margin: 0;
+  color: #262626;
+}
+
+.answer-input-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.answer-input-section textarea {
+  border: 1px solid #d9d9d9;
+  border-radius: 4px;
+  padding: 10px;
+}
